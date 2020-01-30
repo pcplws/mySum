@@ -7,7 +7,7 @@
 #' @param input_2 Number Two. Required.
 
 mySum <- function(input_1 = 10, input_2 = 20) {
-  myoutput <- input_1 + input_2
+  myoutput <- as.numeric(input_1) + as.numeric(input_2)
   list(
     message = paste("The Sum is : ", myoutput, "! This is", R.Version()$version.string)
   )
