@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My R Function mySum</title>
+
+    <!-- Include order: first jquery, then opencpu.js, and then your code -->
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+    <script>
+    //init this script when the page has loaded
+    $(document).ready(function(){
+      $("#submitbutton").on("click", function(){
+        //disable the button to prevent multiple clicks
+        $("#submitbutton").attr("disabled", "disabled");
+
+        //read the value for 'myname'
+        var mynum1 = $("#n1").val();
+        var mynum2 = $("#n2").val();
+        //perform the request
+        var req = ocpu.rpc("mySum", {
+          input_1 : mynum1, input_2 : mynum2
+        }, function(output){
+          $("#output").text(output.message);
+        });
+
+        //if R returns an error, alert the error message
+        req.fail(function(){
+          alert("Server error: " + req.responseText);
+        });
+
+        //after request complete, re-enable the button
+        req.always(function(){
+          $("#submitbutton").removeAttr("disabled")
+        });
+      });
+    });
+    </script>
+
+    <style>
+      #output{
+        height: 80px;
+        width: 500px;
+        border: 1px solid gray;
+        padding: 3px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <h1>Hello, Protogene! This will add two numbers.!!!</h1>
+
+    <b>Enter First Number:  </b> <input type="text" id="n1">
+    <b>Enter Second Number: </b> <input type="text" id="n2">
+
+    <button id="submitbutton" type="button">Submit to server!</button>
+
+    <p id="output"></p>
+
+    <br />
+  </body>
+</html>
