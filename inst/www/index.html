@@ -22,6 +22,7 @@
           input_1 : mynum1, input_2 : mynum2
         }, function(output){
           $("#output").text(output.message);
+          alert("My Sum is " + output.message);
         });
 
         //if R returns an error, alert the error message
