@@ -5,7 +5,7 @@
 "Adds Two Number"
 }
 \description{
-"Adds Two Numbers passed as paramenter"
+"Adds Two Numbers passed as paramenter."
 }
 \usage{
 mySum(x,y)
