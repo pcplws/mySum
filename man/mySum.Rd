@@ -2,7 +2,7 @@
 \alias{mySum}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-"Adds Two Number"
+"Adds Two Number."
 }
 \description{
 "Adds Two Numbers passed as paramenter."
